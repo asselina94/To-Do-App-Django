@@ -1,0 +1,280 @@
+/* Intro*/
+
+.game-intro {
+  position: relative;
+  height: 100vh;
+  width:100vw;
+  background: $intro-dark-color;
+  overflow: hidden;
+}
+
+.game-intro__decor{
+
+}
+.decor-intro-star{
+  position: relative;
+  z-index: 500;
+  opacity: 0.8;
+  border-radius: 50%;
+  box-shadow: 0px 0px 24px 3px #11DBDA;
+  background: $intro-light-color;
+  animation: star 8s linear infinite;
+}
+
+.decor-intro-star::before{
+  position: absolute;
+  display: block;
+  content: "";
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: 400;
+  opacity: 0.2;
+  border-radius: 50%;
+  background: $intro-light-color;
+}
+
+.star--1{
+  @include absolute();
+  top: 10%;
+  left: 90%;
+  width:0.8em;
+  height:0.8em;
+
+}
+.star--2{
+  @include absolute();
+  top: 85%;
+  left:10%;
+  width:0.8em;
+  height:0.8em;
+}
+.star--3{
+  @include absolute();
+  top: 91%;
+  left: 58%;
+  width:0.6em;
+  height:0.6em;
+}
+.star--4{
+  @include absolute();
+  top: 87%;
+left: 86%;
+  width:0.6em;
+  height:0.6em;
+}
+.star--5{
+  @include absolute();
+  top: 70%;
+  left: 36%;
+  width:0.5em;
+  height:0.5em;
+}
+.star--6{
+  @include absolute();
+  top: 10%;
+  left: 36%;
+  width:0.6em;
+  height:0.6em;
+}
+
+.star--7{
+  @include absolute();
+  top: 14%;
+  left: 8%;
+  width:0.3em;
+  height:0.3em;
+}
+
+.decor-intro-gradient{
+  @include absolute();
+  top: 0%;
+  left: 33%;
+  height: 100%;
+  width: 67%;
+}
+.decor-intro-planet{
+  @include absolute();
+  top: 0%;
+  left: 0%;
+  height: 41em;
+  width: 45em;
+  border-radius: 50%;
+  z-index: 400;
+  background: transparent url(../img/planet.png) no-repeat center center;
+  background-size: 70%;
+  &::before{
+    position: absolute;
+    display: block;
+    content: "";
+    top: 23%;
+    left: 27%;
+    height: 52%;
+    width: 47%;
+    z-index: 1000;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 0px 0px 123px 53px #11DBD9;
+    animation: illumination 10s linear infinite;
+  }
+}
+
+.game__btn-menu{
+  position: absolute;
+  content: "";
+  display: block;
+  top:2%;
+  right:1%;
+  opacity: 0.5;
+  width: 50px;
+  height: 50px;
+  z-index: 100;
+  cursor: pointer;
+
+  &:hover, &:active{
+    opacity: 1;
+  }
+}
+
+.game-intro__start {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.start__title {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 29vw;
+  height: 34vh;
+  z-index: 100;
+  font-size: 9vh;
+  text-align: center;
+  color: #EEE;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.btn-play{
+  position: absolute;
+  top: 58%;
+  left: 15%;
+  width: 13rem;
+  height: 13rem;
+  z-index: 2000;
+  cursor: pointer;
+  background: transparent url(../img/planet2.png) no-repeat center center;
+  background-size: 100%;
+  transition: 1s;
+  &:hover, &:active{
+    transform: scale(1.5);
+  }
+}
+.btn-info{
+  position: absolute;
+  top:5%;
+  left: 77%;
+  z-index: 100;
+  background: transparent url(../img/ufo.png) no-repeat 50% 50%;
+  width: 12rem;
+  height: 12rem;
+  z-index: 2000;
+  cursor: pointer;
+  background-size: 70%;
+  transition: 1s;
+  transform: rotate(30deg);
+  // animation: ufo 10s linear infinite;
+  &:hover, &:active{
+    animation-play-state: paused;
+    transform: scale(1.5) rotate(30deg);
+  }
+}
+
+
+.tooltip-content {
+	position: absolute;
+	width: 4em;
+	padding: 0.3em;
+  bottom:3em;
+  left:1em;
+	border-radius: 20px;
+	text-align: center;
+	color: #fff;
+	opacity: 0;
+	cursor: default;
+	pointer-events: none;
+	-webkit-font-smoothing: antialiased;
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+}
+
+.tooltip--info{
+  	background: #e35583;
+}
+
+.tooltip--play{
+  	background: #e35583;
+}
+
+.btn-play:hover .tooltip-content{
+	opacity: 1;
+	-webkit-transform: translate3d(0,50%,0) rotate3d(0,0,0,0);
+	transform: translate3d(0,50%,0) rotate3d(0,0,0,0);
+	pointer-events: auto;
+}
+
+.btn-info:hover .tooltip-content{
+	opacity: 1;
+	-webkit-transform: translate3d(0,50%,0) rotate(-30deg);
+	transform: translate3d(0,50%,0) rotate(-30deg);
+	pointer-events: auto;
+}
+
+.game__octocat {
+  position: absolute;
+  content: "";
+  display: block;
+  width:7em;
+  height: 7em;
+  bottom: 2.6em;
+  right: 2em;
+  z-index: 2000;
+  background: transparent url(../img/github.png) no-repeat center center;
+  background-size: 70%;
+  animation: octocat 6s linear infinite;
+  &:hover, &:active{
+    animation-play-state: paused;
+    transform: scale(1.5);
+  }
+}
+
+.game__copyright {
+  position: absolute;
+  content: "";
+  display: block;
+  width:7em;
+  height: 7em;
+  bottom: 0;
+  left: 0;
+}
+
+.copyright__link {
+  vertical-align: middle;
+  display: block;
+  padding: 1%;
+}
+
+/* Intro-end*/
